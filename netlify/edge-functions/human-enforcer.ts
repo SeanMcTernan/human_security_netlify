@@ -21,13 +21,15 @@ export default async (request: Request, context: Context) => {
             headers: resp.pxResponse.headers as HeadersInit,
             status: resp.pxResponse.status,
         });
+    } else {
+        console.log("resp", resp);
+        return await context.next();
     }
-
-    console.log("resp", resp);
-    return new Response(":wave:");
 };
 
 export const config: Config = {
     path: "/*",
     excludedPath: ["/1yz6W67d/init.js", "/1yz6W67d/captcha/*", "/1yz6W67d/xhr/*"]
 };
+
+
