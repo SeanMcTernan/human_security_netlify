@@ -8,14 +8,10 @@ export default async (request: Request, context: Context) => {
         px_cookie_secret: Netlify.env.get("PX_COOKIE_SECRET"),
         px_auth_token: Netlify.env.get("PX_AUTH_TOKEN"),
         px_logger_severity: LoggerSeverity.DEBUG,
-        px_extract_user_ip(request) {
-            return "<client ip>";
+        px_extract_user_ip(context) {
+            return context.ip;
         },
     };
-
-    for (const [key, value] of request.headers.entries()) {
-        console.log(`You key value is ${key} and value is ${value}`);
-    }
 
     const px = new PXEnforcer(config);
     const resp = await px.enforce(request);
@@ -26,7 +22,6 @@ export default async (request: Request, context: Context) => {
             status: resp.pxResponse.status,
         });
     } else {
-        // console.log("resp", resp);
         return await context.next();
     }
 };
