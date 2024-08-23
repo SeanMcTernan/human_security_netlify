@@ -13,6 +13,10 @@ export default async (request: Request, context: Context) => {
         },
     };
 
+    for (const [key, value] of request.headers.entries()) {
+        console.log(`You key value is ${key} and value is ${value}`);
+    }
+
     const px = new PXEnforcer(config);
     const resp = await px.enforce(request);
 
@@ -22,7 +26,7 @@ export default async (request: Request, context: Context) => {
             status: resp.pxResponse.status,
         });
     } else {
-        console.log("resp", resp);
+        // console.log("resp", resp);
         return await context.next();
     }
 };
