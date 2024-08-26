@@ -1,4 +1,4 @@
-import { PXEnforcer } from "https://esm.sh/perimeterx-node-core-ts";
+import { PXEnforcer } from "https://esm.sh/perimeterx-node-core-ts@1.0.11";
 import { LoggerSeverity, PXRawConfig } from "https://esm.sh/perimeterx-node-core-ts/dist/interfaces/PXConfig";
 import type { Config, Context } from "@netlify/edge-functions";
 
