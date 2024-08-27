@@ -27,7 +27,8 @@ export default async (request: Request, context: Context) => {
 };
 
 export const config: Config = {
-    path: "/*"
+    path: "/*",
+    excludedPath: [`/${Netlify.env.get("PX_APP_ID")}/init.js`, `/${Netlify.env.get("PX_APP_ID")}/captcha/*`, `/${Netlify.env.get("PX_APP_ID")}/xhr/*`]
 };
 
 
