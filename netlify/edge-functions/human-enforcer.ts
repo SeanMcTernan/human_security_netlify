@@ -27,8 +27,7 @@ export default async (request: Request, context: Context) => {
 };
 
 export const config: Config = {
-    path: "/*",
-    excludedPath: ["/1yz6W67d/init.js", "/1yz6W67d/captcha/*", "/1yz6W67d/xhr/*"]
+    path: "/*"
 };
 
 
