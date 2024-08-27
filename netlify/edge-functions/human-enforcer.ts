@@ -4,7 +4,7 @@ import type { Config, Context } from "@netlify/edge-functions";
 
 export default async (request: Request, context: Context) => {
     const config: PXRawConfig = {
-        px_app_id: Netlify.env.get("PX_APP_ID"),
+        px_app_id: `PX${Netlify.env.get("PX_APP_ID")}`,
         px_cookie_secret: Netlify.env.get("PX_COOKIE_SECRET"),
         px_auth_token: Netlify.env.get("PX_AUTH_TOKEN"),
         px_logger_severity: LoggerSeverity.DEBUG,
