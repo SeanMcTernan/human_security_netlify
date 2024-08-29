@@ -1,4 +1,4 @@
-import { PXEnforcer } from "perimeterx-node-core-ts";
+import { PXEnforcer } from "https://esm.sh/perimeterx-node-core-ts@1.0.12";
 import { LoggerSeverity, PXRawConfig } from "https://esm.sh/perimeterx-node-core-ts/dist/interfaces/PXConfig";
 import type { Config, Context } from "@netlify/edge-functions";
 
@@ -28,3 +28,5 @@ export default async (request: Request, context: Context) => {
 export const config: Config = {
     path: "/*"
 };
+
+
