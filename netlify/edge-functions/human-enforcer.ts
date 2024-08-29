@@ -15,7 +15,9 @@ export default async (request: Request, context: Context) => {
 
     const px = new PXEnforcer(config);
     const resp = await px.enforce(request);
-
+    if (request.method === 'POST') {
+        console.log("This Post Was triggered");
+    }
     if (resp.pxResponse) {
         return new Response(resp.pxResponse.body, {
             headers: resp.pxResponse.headers as HeadersInit,
