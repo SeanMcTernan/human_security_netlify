@@ -2,7 +2,7 @@ import type { Config, Context } from "@netlify/edge-functions";
 
 export default async (request: Request, context: Context) => {
     // The requests that sit on the clients side script are proxied to perimiter X and returned from the same domain that requested it thefore circumventeing adblockers
-
+    console.log("This Edge Function Was triggered");
     if (request.url.includes(`/${Netlify.env.get("PX_APP_ID")}/xhr/`)) {
         const match = request.url.match(/\/1yz6W67d\/xhr\/(.*)/)
         console.log(`Posting to field  - https://collector-PX${Netlify.env.get("PX_APP_ID")}.perimeterx.net/${match[1]}`);
