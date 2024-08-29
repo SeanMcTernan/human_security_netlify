@@ -5,6 +5,7 @@ export default async (request: Request, context: Context) => {
 
     if (request.url.includes(`/${Netlify.env.get("PX_APP_ID")}/xhr/`)) {
         const match = request.url.match(/\/1yz6W67d\/xhr\/(.*)/)
+        console.log(`Posting to field  - https://collector-PX${Netlify.env.get("PX_APP_ID")}.perimeterx.net/${match[1]}`);
         return await fetch(new Request(`https://collector-PX${Netlify.env.get("PX_APP_ID")}.perimeterx.net/${match[1]}`, request));
     } else {
         return new Response("Warning: Edge Function executed, but no action was taken!");
