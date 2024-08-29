@@ -11,7 +11,7 @@
   "dependencies": {
     "@netlify/edge-functions": "^2.2.0",
     "next": "14.0.3",
-    "perimeterx-node-core-ts": "^1.0.11",
+    "perimeterx-node-core-ts": "^1.0.13",
     "react": "^18",
     "react-dom": "^18"
   },
