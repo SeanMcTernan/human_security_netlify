@@ -1,4 +1,4 @@
-import { PXEnforcer } from "https://esm.sh/perimeterx-node-core-ts@1.0.11";
+import { PXEnforcer } from "perimeterx-node-core-ts";
 import { LoggerSeverity, PXRawConfig } from "https://esm.sh/perimeterx-node-core-ts/dist/interfaces/PXConfig";
 import type { Config, Context } from "@netlify/edge-functions";
 
@@ -15,9 +15,6 @@ export default async (request: Request, context: Context) => {
 
     const px = new PXEnforcer(config);
     const resp = await px.enforce(request);
-    if (request.method === 'POST') {
-        console.log("This Post Was triggered");
-    }
     if (resp.pxResponse) {
         return new Response(resp.pxResponse.body, {
             headers: resp.pxResponse.headers as HeadersInit,
@@ -31,5 +28,3 @@ export default async (request: Request, context: Context) => {
 export const config: Config = {
     path: "/*"
 };
-
-
