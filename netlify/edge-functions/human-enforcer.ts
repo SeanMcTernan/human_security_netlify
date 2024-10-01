@@ -1,5 +1,4 @@
-import { PXEnforcer } from "https://esm.sh/perimeterx-node-core-ts@1.0.14";
-import { LoggerSeverity, PXRawConfig } from "https://esm.sh/perimeterx-node-core-ts/dist/interfaces/PXConfig";
+import { LoggerSeverity, PXEnforcer, PXRawConfig } from "perimeterx-node-core-ts";
 import type { Config, Context } from "@netlify/edge-functions";
 
 export default async (request: Request, context: Context) => {
@@ -8,7 +7,7 @@ export default async (request: Request, context: Context) => {
         px_cookie_secret: Netlify.env.get("PX_COOKIE_SECRET"),
         px_auth_token: Netlify.env.get("PX_AUTH_TOKEN"),
         px_logger_severity: LoggerSeverity.DEBUG,
-        px_extract_user_ip(context) {
+        px_extract_user_ip: (request) => {
             return context.ip;
         },
     };
