@@ -1,4 +1,4 @@
-import { LoggerSeverity, PXEnforcer, PXRawConfig } from "perimeterx-node-core-ts";
+import { PXEnforcer, LoggerSeverity, PXRawConfig } from "perimeterx-node-core-ts";
 import type { Config, Context } from "@netlify/edge-functions";
 
 export default async (request: Request, context: Context) => {
